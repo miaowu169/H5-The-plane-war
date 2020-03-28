@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>JS飞机大战网页版小游戏</title>
+
+<style type="text/css" media="screen">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	img{
+		border:0;
+	}
+	ol, ul ,li{list-style: none;}
+
+
+		html,body{
+			/* background: url('img/bj.jpg'); */
+			height:100%;
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+			-khtml-user-select: none;
+			user-select: none;
+			font-family:sans-serif;
+		}
+	    .layout{
+			width:100%;
+			height:100%;
+			margin: 0 auto;
+			background: url('img/newmap1.jpg') center bottom /100% auto;
+			/* background:#505149; */
+			position: relative;
+			overflow: hidden;
+			animation:movebg 500s linear infinite;
+			-moz-animation:movebg 1500s linear infinite; /* Firefox */
+			-webkit-animation:movebg 500s linear infinite; /* Safari and Chrome */
+			-o-animation:movebg 3000s linear infinite; /* Opera */
+
+		}
+		.plane{
+			width:137px;
+			height:91px;
+			/* background:#fff; */
+			background:url('img/img_plane_main.png') 0 0 no-repeat;
+			position: absolute;
+			bottom:52px;
+			left:50%;
+		}
+
+		.engine1{
+			width:22px;
+			height:52px;
+			background:url('img/p-f02.png') 0 0 no-repeat;
+			position:absolute;
+			left:50%;
+		}
+
+		.engine2{
+			width:21px;
+			height:51px;
+			background:url('img/p-f02.png') -21px 0 no-repeat;
+			position:absolute;
+			left:50%;
+		}
+
+		.b1{
+			width:21px;
+			height:51px;
+			background:url('img/img_bullet.png') -334px -171px no-repeat;
+			position: absolute;
+			top:-50px;
+			left:50%;
+		}
+		.enemy{
+			width:100px;
+			height:75px;
+			/* background:yellow; */
+			background:url('img/img_plane_enemy.png') -266px -474px no-repeat;
+			position: absolute;
+			top:-70px;
+			left:20px;
+		}
+
+		.b2{
+			width:15px;
+			height:15px;
+			background:url('img/ballBlue.gif') 0 0 no-repeat;
+			position: absolute;
+			left:50%;
+			bottom: -50px;
+		}
+		/*
+		.wo_xue{position: absolute;display:block;border:solid 1px #333;width:150px;height:8px;left:20px;top:40px;background:#ccc;overflow: hidden;}
+		*/
+		.bloods{
+			display: none;
+			width:300px;
+			height:40px;
+			font-size:26px;
+			font-weight:bold;
+			color:white;
+			text-align:center;
+			text-align:center;
+			border:2px solid white;
+			position: absolute;
+			top:20px;
+			left:20px;		
+			
+
+			/* background:red; */
+		}
+
+		.ge{
+			width:100%;
+			height:40px;
+			background:green;
+			position:absolute;
+			left:0px;
+			top:0px;
+		}
+
+		@keyframes movebg
+		{
+			from {background-position:0 10000%;} to {background-position:0 0%;}
+		}
+
+		@-moz-keyframes movebg /* Firefox */
+		{
+			from {background-position:0 10000%;} to {background-position:0 0;}
+		}
+
+		@-webkit-keyframes movebg /* Safari and Chrome */
+		{
+			from {background-position:0 10000%;} to {background-position:0 0%;}
+		}
+
+		@-o-keyframes movebg /* Opera */
+		{
+			from {background-position:0 10000%;} to {background-position:0 0;}
+		}
+		#start{
+			width: 100%;
+			height:100%;
+			background:rgba(0, 0, 0, 0.7);
+			position: absolute;
+			top:0;
+			left:0;
+		}
+		#startBtn{
+			background:blue;
+			color: #fff;
+			font-size:50px;
+			margin:100px 0 0 -115px;
+			padding: 10px 30px;
+			border:5px solid #fff;
+			border-radius:50px;
+			position: absolute;
+			top:50%;
+			left:50%;
+			outline:none;
+			cursor:pointer;
+		}
+		#name-over{
+			font-family:'微软雅黑',sans-serif;
+			width:100%;
+			padding: 120px 0 10px;
+			margin: -200px 0 0 0;
+			font-size:50px;
+			font-weight:bold;
+			text-align:center;
+			color:rgba(106,124,197,1);
+			line-height:70px;
+			background:rgba(106,124,197,0.5) url('img/logo.png') center 20px no-repeat;
+			position: absolute;
+			top:50%;
+			left:0;
+		}
+</style>
+
+</head>
+<body> 
+
+<audio id="bgmuc" autoplay loop src="audio/action_world1_01.mp3"></audio>
+<audio id="fire" src="audio/9519.mp3"></audio>
+<audio id="boom" src="audio/baoza.mp3"></audio>
+<audio id="bigboom" src="audio/bigboom.mp3"></audio>
+<div class="layout" id="layout"></div>
+<div class="bloods">
+	<span className = 'ge' id = "rec">100%
+	</span>
+
+</div>
+<div id="start">
+	<div id="name-over"><i>JS飞机大战</i><p style = "font-size:20px">妙乌</p></div>
+	<input id="startBtn" type="button" name="mystartBtn" value="START">
+</div>
+<img id = "show" src = "img/baozha_2.gif" style = "display:none"/>
+<script type = "text/javascript" src="js/main.js"></script>
+</body>
+</html>
